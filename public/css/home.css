@@ -1,0 +1,61 @@
+html{
+  background: url(../img/field.jpg) no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+input{
+  font-family: "Roboto", sans-serif;
+  outline: 0;
+  background: #f2f2f2;
+  width: 70%;
+  border: 0;
+  margin: 0 0 15px;
+  padding: 15px;
+  box-sizing: border-box;
+  font-size: 14px;
+}
+
+input[type="checkbox"]{
+  width: auto;
+}
+
+.mdl-button{
+  width: 70%;
+}
+
+.buttonlogin{
+  width: 70%;
+}
+
+.content{
+  margin-top: 10%;
+}
+
+.login
+{
+  padding-top: 2%;
+  text-align: center;
+}
+
+.title{
+  color: white;
+  text-align: left;
+}
+
+.subtitle{
+  color: white;
+  text-align: left;
+}
+
+.mdl-mini-footer{
+  background-color: rgba(255,255,255, 0.0);
+  color: white;
+  font-size: 1em;
+}
+
+.white{
+  color: white;
+}
