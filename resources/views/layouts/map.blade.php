@@ -71,7 +71,7 @@
           </nav>
         </div>
         <main class="mdl-layout__content mdl-color--grey-100">
-          <div class="mdl-grid">
+          <div class="mdl-grid" style="padding: 0;">
             @yield('content')
           </div>
           <script src="/js/app.js"></script>

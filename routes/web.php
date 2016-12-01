@@ -28,3 +28,5 @@ Route::resource('fitting', 'FittingController');
 Route::get('/home', 'HomeController@index');
 
 Route::get('/app', 'AppController@index');
+
+Route::get('/showEventsUser', 'EventController@showEventsUser');

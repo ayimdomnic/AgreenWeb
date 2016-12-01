@@ -25,4 +25,9 @@ class EventController extends Controller
     {
     	return view('app.event.index');
     }
+
+    public function showEventsUser()
+    {
+    	return view('app.event.user');
+    }
 }
