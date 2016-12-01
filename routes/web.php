@@ -21,6 +21,10 @@ Route::resource('parcel', 'ParcelController');
 
 Route::resource('parcelgps', 'ParcelGpsController');
 
+Route::resource('event', 'EventController');
+
+Route::resource('fitting', 'FittingController');
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/app', 'AppController@index');
