@@ -30,3 +30,5 @@ Route::get('/home', 'HomeController@index');
 Route::get('/app', 'AppController@index');
 
 Route::get('/showEventsUser', 'EventController@showEventsUser');
+
+Route::get('/showFittingsUser', 'FittingController@showFittingsUser');

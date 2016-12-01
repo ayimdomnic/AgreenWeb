@@ -64,7 +64,8 @@
           <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
             <a class="mdl-navigation__link" href="{{ URL::to('app') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">home</i>Accueil</a>
             <a class="mdl-navigation__link" href="{{ URL::to('event') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">directions_car</i>Events</a> 
-            <a class="mdl-navigation__link" href="{{ URL::to('showEventsUser') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">directions_car</i>event by user</a> 
+            <a class="mdl-navigation__link" href="{{ URL::to('showEventsUser') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">directions_car</i>events by user</a> 
+            <a class="mdl-navigation__link" href="{{ URL::to('showFittingsUser') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">directions_car</i>fittings by user</a> 
             <a class="mdl-navigation__link" href="{{ URL::to('fitting') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">bluetooth_connected</i>Fitting</a> 
             <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">computer</i>GIE</a>
             <a class="mdl-navigation__link" href="{{ URL::to('parcel') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">inbox</i>Parcelles</a> 

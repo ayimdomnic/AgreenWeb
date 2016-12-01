@@ -25,4 +25,11 @@ class FittingController extends Controller
     {
     	return view('app.fitting.index');
     }
+
+   public function showFittingsUser()
+    {
+      return view('app.fitting.user');
+    }
+    
+
 }
