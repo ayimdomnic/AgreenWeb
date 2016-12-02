@@ -67,6 +67,8 @@
             <a class="mdl-navigation__link" href="{{ URL::to('showEventsUser') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">directions_car</i>events by user</a> 
             <a class="mdl-navigation__link" href="{{ URL::to('showFittingsUser') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">directions_car</i>fittings by user</a> 
             <a class="mdl-navigation__link" href="{{ URL::to('fitting') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">bluetooth_connected</i>Fitting</a> 
+            <a class="mdl-navigation__link" href="{{ URL::to('generateSessions') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">bluetooth_connected</i>generateSessions</a> 
+             <a class="mdl-navigation__link" href="{{ URL::to('blesession') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">bluetooth_connected</i>Sessions</a> 
             <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">computer</i>GIE</a>
             <a class="mdl-navigation__link" href="{{ URL::to('parcel') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">inbox</i>Parcelles</a> 
           </nav>

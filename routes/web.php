@@ -25,6 +25,8 @@ Route::resource('event', 'EventController');
 
 Route::resource('fitting', 'FittingController');
 
+Route::resource('blesession', 'BleSessionController');
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/app', 'AppController@index');
@@ -32,3 +34,5 @@ Route::get('/app', 'AppController@index');
 Route::get('/showEventsUser', 'EventController@showEventsUser');
 
 Route::get('/showFittingsUser', 'FittingController@showFittingsUser');
+
+Route::get('/generateSessions', 'FittingController@generateSessions');

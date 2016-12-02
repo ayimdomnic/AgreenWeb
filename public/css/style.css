@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-html, body {
+ html, body {
   font-family: 'Roboto', 'Helvetica', sans-serif;
 }
 .alignCenter{
@@ -54,8 +54,8 @@ html, body {
   display: -ms-flexbox;
   display: flex;
   -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .demo-drawer-header {
   box-sizing: border-box;
@@ -63,12 +63,12 @@ html, body {
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-justify-content: flex-end;
-      -ms-flex-pack: end;
-          justify-content: flex-end;
-  padding: 16px;
+  -ms-flex-pack: end;
+  justify-content: flex-end;
+  padding: 2px;
 }
 .demo-avatar-dropdown {
   display: -webkit-flex;
@@ -76,29 +76,28 @@ html, body {
   display: flex;
   position: relative;
   -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   width: 100%;
 }
-
 .demo-navigation {
   -webkit-flex-grow: 1;
-      -ms-flex-positive: 1;
-          flex-grow: 1;
+  -ms-flex-positive: 1;
+  flex-grow: 1;
 }
 .demo-layout .demo-navigation .mdl-navigation__link {
   display: -webkit-flex !important;
   display: -ms-flexbox !important;
   display: flex !important;
   -webkit-flex-direction: row;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
   color: rgb(255, 255, 255);
   font-weight: 500;
 }
@@ -111,16 +110,14 @@ html, body {
   color: rgba(255, 255, 255, 0.56);
   margin-right: 32px;
 }
-
 .demo-content {
   max-width: 1080px;
 }
-
 .demo-charts {
   -webkit-align-items: center;
-      -ms-flex-align: center;
-              -ms-grid-row-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  -ms-grid-row-align: center;
+  align-items: center;
 }
 .demo-chart:nth-child(1) {
   color: #ACEC00;
@@ -140,38 +137,32 @@ html, body {
   display: -ms-flexbox;
   display: flex;
   -webkit-flex-direction: column;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
   -webkit-align-items: stretch;
-      -ms-flex-align: stretch;
-          align-items: stretch;
+  -ms-flex-align: stretch;
+  align-items: stretch;
 }
-/* TODO: Find a proper solution to have the graphs
- * not float around outside their container in IE10/11.
- * Using a browserhacks.com solution for now.
- */
 _:-ms-input-placeholder, :root .demo-graphs {
   min-height: 664px;
 }
 _:-ms-input-placeholder, :root .demo-graph {
   max-height: 300px;
 }
-/* TODO end */
 .demo-graph:nth-child(1) {
   color: #00b9d8;
 }
 .demo-graph:nth-child(2) {
   color: #d9006e;
 }
-
 .demo-cards {
   -webkit-align-items: flex-start;
-      -ms-flex-align: start;
-              -ms-grid-row-align: flex-start;
-          align-items: flex-start;
+  -ms-flex-align: start;
+  -ms-grid-row-align: flex-start;
+  align-items: flex-start;
   -webkit-align-content: flex-start;
-      -ms-flex-line-pack: start;
-          align-content: flex-start;
+  -ms-flex-line-pack: start;
+  align-content: flex-start;
 }
 .demo-cards .demo-separator {
   height: 32px;
@@ -197,7 +188,6 @@ _:-ms-input-placeholder, :root .demo-graph {
   color: #00BCD4;
   text-decoration: none;
 }
-
 .demo-options h3 {
   margin: 0;
 }
@@ -221,12 +211,12 @@ _:-ms-input-placeholder, :root .demo-graph {
   display: flex;
   box-sizing: border-box;
   -webkit-align-items: center;
-      -ms-flex-align: center;
-          align-items: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 .inputsForm{
-width: 100%;
-margin: 2% 2% ;
+  width: 100%;
+  margin: 2% 2% ;
 }
 .buttonForm{
   width: 100%;
@@ -234,11 +224,11 @@ margin: 2% 2% ;
 }
 .bar{
   text-align: center;
-    box-sizing: border-box;
-    background: #FF4081;
-    color: white;
-    width: 100%;
-    padding: 16px;
+  box-sizing: border-box;
+  background: #FF4081;
+  color: white;
+  width: 100%;
+  padding: 16px;
 }
 
 .floatleft{
