@@ -65,6 +65,7 @@
             </div>
           </header>
           <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
+             <a class="mdl-navigation__link" href="{{ URL::to('app') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">home</i>Accueil</a>
             <li class="dropdown">
               <a href="#" data-toggle="dropdown" class="mdl-navigation__link"><i
                 class="mdl-color-text--blue-grey-400 material-icons">directions_car</i>Captures</a><input type="checkbox"/>

@@ -88,11 +88,9 @@
                   </li>
                 </ul>
               </li>
-
-
             <li class="dropdown">
               <a href="#" data-toggle="dropdown" class="mdl-navigation__link"><i
-                class="mdl-color-text--blue-grey-400 material-icons">bluetooth_connected</i>Sessions</a><input type="checkbox"/>
+                class="mdl-color-text--blue-grey-400 material-icons">access_time</i>Sessions</a><input type="checkbox"/>
                 <ul class="dropdown-menu">
                   <li><a class="mdl-navigation__link black" href="{{ URL::to('blesession') }}">Sessions</a>
                   </li>
@@ -100,7 +98,6 @@
                   </li>
                 </ul>
               </li>
-
               <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">computer</i>GIE</a>
               <a class="mdl-navigation__link" href="{{ URL::to('parcel') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">inbox</i>Parcelles</a> 
             </nav>
