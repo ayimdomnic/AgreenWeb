@@ -4,17 +4,25 @@
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
-
 <div class="panel panel-default" style="height: 100%; width: 100%">
 	<div class="panel-body" >
-
-		<select class="mdl-select__input" id="professsion" name="professsion">
-			@foreach($users as $key => $value)
-			<?php echo "<option value='" . $value->id . "'>". $value->firstname . " " .$value->name. " - " .$value->idUser."</option>"; ?>
-			@endforeach
-		</select>
-
-		<input class="mdl-textfield__input" id="demo" type="text" name="daterange"/>
+		<div class="mdl-grid">
+			<div class="demo-charts  mdl-cell mdl-cell--3-offset mdl-cell--2-col">
+				<select class="mdl-select__input mdl-color--white mdl-shadow--2dp" id="professsion" name="professsion" style="padding: 8px 0px">
+					@foreach($users as $key => $value)
+					<?php echo "<option value='" . $value->id . "'>". $value->firstname . " " .$value->name. " - " .$value->idUser."</option>"; ?>
+					@endforeach
+				</select>
+			</div>
+			<div class="demo-charts mdl-cell mdl-cell--3-col">
+				<input class="mdl-textfield__input mdl-color--white mdl-shadow--2dp " id="demo" type="text" name="daterange" style="padding: 7px 11px" />
+			</div>
+			<div class="demo-charts mdl-cell  mdl-cell--1-col">
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width: 100%">
+					Valider
+				</button>
+			</div>
+		</div>
 
 		<script type="text/javascript">
 			$( document ).ready(function() {
@@ -30,7 +38,6 @@
 				var last7Days = moment().subtract(7, 'days');
 				var yesterdayFirst = moment().subtract(1, 'day');
 				var yesterdayLast = moment().subtract(1, 'day').endOf('day');
-
 				$('#demo').daterangepicker({
 					"timePicker": true,
 					"timePicker24Hour": true,
