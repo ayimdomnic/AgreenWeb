@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use App\User;
 use View;
 use Validator;
 use Input;
@@ -37,7 +38,9 @@ class EventController extends Controller
     {
        $events = Event::take(100)
        ->get();
+       $users = User::all();
        return view('app.event.user')
-       ->with('events', $events);
+       ->with('events', $events)
+       ->with('users', $users);
    }
 }

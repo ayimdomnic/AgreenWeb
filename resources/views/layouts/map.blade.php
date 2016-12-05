@@ -22,6 +22,7 @@
       {!! HTML::script('js/jquery.js') !!}
       {!! HTML::script('js/material.min.js') !!}
       {!! HTML::script('js/jquery-ui.js') !!}
+      {!! HTML::script('js/js.js') !!}
       {!! HTML::script('js/app.js') !!}
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <script>
@@ -88,7 +89,8 @@
                 </li>
                 <li class="dropdown">
                   <a href="#" data-toggle="dropdown" class="mdl-navigation__link"><i
-                    class="mdl-color-text--blue-grey-400 material-icons">access_time</i>Sessions</a><input type="checkbox"/>
+                    class="mdl-color-text--blue-grey-400 material-icons">access_time
+                    </i>Sessions</a><input type="checkbox"/>
                     <ul class="dropdown-menu">
                       <li><a class="mdl-navigation__link black" href="{{ URL::to('blesession') }}">Sessions</a>
                       </li>
