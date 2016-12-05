@@ -14,12 +14,17 @@
 			@endforeach
 		</select>
 
-		<input class="mdl-textfield__input" id="daterange" type="text" name="daterange" value="01/01/2016 - 01/31/2016" />
+		<input class="mdl-textfield__input" id="daterange" type="text" name="daterange"/>
 
 		<script type="text/javascript">
 			$( document ).ready(function() {
 				$(function() {
 					$('input[name="daterange"]').daterangepicker();
+				});
+
+				$(function(){
+					var currentDate = moment().format("DD-MM-YYYY");
+					document.getElementById("daterange").value = currentDate + " - " + currentDate;
 				});
 			});
 		</script>
