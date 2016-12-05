@@ -17,9 +17,12 @@
       <link rel="shortcut icon" href="g">
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=fr">
       <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
-      <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+      {{ Html::style('css/material.indigo-pink.min.css') }}
       {{ Html::style('css/style.css') }}
+      {!! HTML::script('js/jquery.js') !!}
+      {!! HTML::script('js/material.min.js') !!}
+      {!! HTML::script('js/jquery-ui.js') !!}
+      {!! HTML::script('js/app.js') !!}
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <script>
         window.Laravel = <?php echo json_encode([
@@ -62,20 +65,46 @@
             </div>
           </header>
           <nav class="demo-navigation mdl-navigation mdl-color--blue-grey-800">
-            <a class="mdl-navigation__link" href="{{ URL::to('app') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">home</i>Accueil</a>
-            <a class="mdl-navigation__link" href="{{ URL::to('event') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">directions_car</i>Events</a> 
-            <a class="mdl-navigation__link" href="{{ URL::to('showEventsUser') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">directions_car</i>event by user</a> 
-            <a class="mdl-navigation__link" href="{{ URL::to('fitting') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">bluetooth_connected</i>Fitting</a> 
-            <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">computer</i>GIE</a>
-            <a class="mdl-navigation__link" href="{{ URL::to('parcel') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">inbox</i>Parcelles</a> 
-          </nav>
-        </div>
-        <main class="mdl-layout__content mdl-color--grey-100">
-          <div class="mdl-grid" style="padding: 0;">
-            @yield('content')
-          </div>
-          <script src="/js/app.js"></script>
-        </div>
-        <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
-      </body>
-      </html>
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="mdl-navigation__link"><i
+                class="mdl-color-text--blue-grey-400 material-icons">directions_car</i>Captures</a><input type="checkbox"/>
+                <ul class="dropdown-menu">
+                  <li><a class="mdl-navigation__link black" href="{{ URL::to('event') }}">Events</a>
+                  </li>
+                  <li><a class="mdl-navigation__link black" href="{{ URL::to('showEventsUser') }}">events by user</a>
+                  </li>
+                </ul>
+              </li>
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="mdl-navigation__link"><i
+                  class="mdl-color-text--blue-grey-400 material-icons">bluetooth_connected</i>Fitting</a><input type="checkbox"/>
+                  <ul class="dropdown-menu">
+                    <li><a class="mdl-navigation__link black" href="{{ URL::to('fitting') }}">Fitting</a>
+                    </li>
+                    <li><a class="mdl-navigation__link black" href="{{ URL::to('showFittingsUser') }}">fittings by user</a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="dropdown">
+                  <a href="#" data-toggle="dropdown" class="mdl-navigation__link"><i
+                    class="mdl-color-text--blue-grey-400 material-icons">bluetooth_connected</i>Sessions</a><input type="checkbox"/>
+                    <ul class="dropdown-menu">
+                      <li><a class="mdl-navigation__link black" href="{{ URL::to('blesession') }}">Sessions</a>
+                      </li>
+                      <li><a class="mdl-navigation__link black" href="{{ URL::to('generateSessions') }}">generateSessions</a>
+                      </li>
+                    </ul>
+                  </li>
+                  <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">computer</i>GIE</a>
+                  <a class="mdl-navigation__link" href="{{ URL::to('parcel') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">inbox</i>Parcelles</a> 
+                </nav>
+              </div>
+              <main class="mdl-layout__content mdl-color--grey-100">
+                <div class="mdl-grid" style="padding: 0;">
+                  @yield('content')
+                </div>
+                <script src="/js/app.js"></script>
+              </div>
+              <script src="https://code.getmdl.io/1.2.1/material.min.js"></script>
+            </body>
+            </html>
