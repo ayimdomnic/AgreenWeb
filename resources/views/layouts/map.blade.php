@@ -35,7 +35,7 @@
         <div class="demo-layout mdl-layout mdl-js-layout mdl-layout--fixed-drawer mdl-layout--fixed-header">
           <header class="demo-header mdl-layout__header mdl-color--grey-100 mdl-color-text--grey-600">
             <div class="mdl-layout__header-row">
-              <div class="mdl-layout-spacer"></div>
+               @yield('header')
               <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable">
               </div>
               <button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--icon" id="hdrbtn">

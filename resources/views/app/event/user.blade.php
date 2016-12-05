@@ -1,4 +1,21 @@
 @extends('layouts.map')
+@section('header')
+	<div class="demo-charts  mdl-cell mdl-cell--3-offset mdl-cell--2-col">
+		<select class="mdl-select__input mdl-color--white mdl-shadow--2dp" id="professsion" name="professsion" style="padding: 8px 0px">
+			@foreach($users as $key => $value)
+			<?php echo "<option value='" . $value->id . "'>". $value->firstname . " " .$value->name. " - " .$value->idUser."</option>"; ?>
+			@endforeach
+		</select>
+	</div>
+	<div class="demo-charts mdl-cell mdl-cell--3-col">
+		<input class="mdl-textfield__input mdl-color--white mdl-shadow--2dp " id="demo" type="text" name="daterange" style="padding: 7px 11px" />
+	</div>
+	<div class="demo-charts mdl-cell  mdl-cell--1-col">
+		<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width: 100%">
+			Valider
+		</button>
+	</div>
+@endsection
 @section('content')
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
@@ -6,24 +23,6 @@
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 <div class="panel panel-default" style="height: 100%; width: 100%">
 	<div class="panel-body" >
-		<div class="mdl-grid">
-			<div class="demo-charts  mdl-cell mdl-cell--3-offset mdl-cell--2-col">
-				<select class="mdl-select__input mdl-color--white mdl-shadow--2dp" id="professsion" name="professsion" style="padding: 8px 0px">
-					@foreach($users as $key => $value)
-					<?php echo "<option value='" . $value->id . "'>". $value->firstname . " " .$value->name. " - " .$value->idUser."</option>"; ?>
-					@endforeach
-				</select>
-			</div>
-			<div class="demo-charts mdl-cell mdl-cell--3-col">
-				<input class="mdl-textfield__input mdl-color--white mdl-shadow--2dp " id="demo" type="text" name="daterange" style="padding: 7px 11px" />
-			</div>
-			<div class="demo-charts mdl-cell  mdl-cell--1-col">
-				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width: 100%">
-					Valider
-				</button>
-			</div>
-		</div>
-
 		<script type="text/javascript">
 			$( document ).ready(function() {
 				var currentDateFirst = moment().startOf('day').format("YYYY/MM/DD H:m:s");
@@ -104,10 +103,7 @@
 				}, function(start, end, label) {
 					console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
 				});
-				$(function(){
-					var currentDate = moment().format("DD-MM-YYYY");
-					document.getElementById("daterange").value = currentDate + " - " + currentDate;
-				});
+				
 			});
 		</script>
 		<div id="map" class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col" style="margin: 0; padding: 0; height: 93.3vh; width: 100%"></div>
