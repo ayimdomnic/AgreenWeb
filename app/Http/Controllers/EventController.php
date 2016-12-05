@@ -3,6 +3,13 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
+use View;
+use Validator;
+use Input;
+use Session;
+use Redirect;
+use DateTime;
 
 class EventController extends Controller
 {
@@ -28,6 +35,9 @@ class EventController extends Controller
 
     public function showEventsUser()
     {
-    	return view('app.event.user');
-    }
+       $events = Event::take(100)
+       ->get();
+       return view('app.event.user')
+       ->with('events', $events);
+   }
 }

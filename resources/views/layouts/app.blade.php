@@ -73,7 +73,7 @@
               <ul class="dropdown-menu">
                 <li><a class="mdl-navigation__link black" href="{{ URL::to('event') }}">Events</a>
                 </li>
-                <li><a class="mdl-navigation__link black" href="{{ URL::to('showEventsUser') }}">events by user</a>
+                <li><a class="mdl-navigation__link black" href="{{ URL::to('showEventsUser') }}">Events User</a>
                 </li>
               </ul>
             </li>
@@ -82,9 +82,9 @@
               <a href="#" data-toggle="dropdown" class="mdl-navigation__link"><i
                 class="mdl-color-text--blue-grey-400 material-icons">bluetooth_connected</i>Fitting</a><input type="checkbox"/>
                 <ul class="dropdown-menu">
-                  <li><a class="mdl-navigation__link black" href="{{ URL::to('fitting') }}">Fitting</a>
+                  <li><a class="mdl-navigation__link black" href="{{ URL::to('fitting') }}">Fittings</a>
                   </li>
-                  <li><a class="mdl-navigation__link black" href="{{ URL::to('showFittingsUser') }}">fittings by user</a>
+                  <li><a class="mdl-navigation__link black" href="{{ URL::to('showFittingsUser') }}">Fitting by user</a>
                   </li>
                 </ul>
               </li>
@@ -94,7 +94,7 @@
                 <ul class="dropdown-menu">
                   <li><a class="mdl-navigation__link black" href="{{ URL::to('blesession') }}">Sessions</a>
                   </li>
-                  <li><a class="mdl-navigation__link black" href="{{ URL::to('generateSessions') }}">generateSessions</a>
+                  <li><a class="mdl-navigation__link black" href="{{ URL::to('generateSessions') }}">Générer les sessions</a>
                   </li>
                 </ul>
               </li>
