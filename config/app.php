@@ -180,6 +180,9 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //Debug bar a remove
+        Barryvdh\Debugbar\ServiceProvider::class,
+
     ],
 
     /*
@@ -230,6 +233,9 @@ return [
         'Form' => Collective\Html\FormFacade::class,
         'Html' => Collective\Html\HtmlFacade::class, 
         'Input' => Illuminate\Support\Facades\Input::class,
+
+        //Debug bar a remove
+        'Debugbar' => Barryvdh\Debugbar\Facade::class,
     ],
 
 ];

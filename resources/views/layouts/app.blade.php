@@ -20,6 +20,8 @@
       <link rel="stylesheet" href="https://code.getmdl.io/1.2.1/material.indigo-pink.min.css">
       <script defer src="https://code.getmdl.io/1.2.1/material.min.js"></script>
       {{ Html::style('css/style.css') }}
+      {!! HTML::script('js/jquery.js') !!}
+      {!! HTML::script('js/jquery-ui.js') !!}
       <meta name="csrf-token" content="{{ csrf_token() }}">
       <script>
         window.Laravel = <?php echo json_encode([
