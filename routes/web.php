@@ -36,3 +36,6 @@ Route::get('/showEventsUser', 'EventController@showEventsUser');
 Route::get('/showFittingsUser', 'FittingController@showFittingsUser');
 
 Route::get('/generateSessions', 'FittingController@generateSessions');
+
+
+Route::post('showEventUserForm', 'EventController@showEventsUserForm');

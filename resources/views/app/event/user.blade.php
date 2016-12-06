@@ -1,28 +1,33 @@
 @extends('layouts.map')
 @section('header')
-	<div class="demo-charts  mdl-cell mdl-cell--3-offset mdl-cell--2-col">
-		<select class="mdl-select__input mdl-color--white mdl-shadow--2dp" id="professsion" name="professsion" style="padding: 8px 0px">
-			@foreach($users as $key => $value)
-			<?php echo "<option value='" . $value->id . "'>". $value->firstname . " " .$value->name. " - " .$value->idUser."</option>"; ?>
-			@endforeach
-		</select>
-	</div>
-	<div class="demo-charts mdl-cell mdl-cell--3-col">
-		<input class="mdl-textfield__input mdl-color--white mdl-shadow--2dp " id="demo" type="text" name="daterange" style="padding: 7px 11px" />
-	</div>
-	<div class="demo-charts mdl-cell  mdl-cell--1-col">
-		<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" style="width: 100%">
-			Valider
-		</button>
-	</div>
+
+{{ Form::open(array('url' => 'showEventUserForm', 'class' => 'mdl-grid mdl-cell--12-col')) }}
+<div class="demo-charts  mdl-cell mdl-cell--3-offset mdl-cell--2-col">
+	<select class="mdl-select__input mdl-color--white mdl-shadow--2dp" id="professsion" name="user" style="padding: 8px 0px">
+		@foreach($users as $key => $value)
+		<?php echo "<option value='" . $value->idUser . "'>". $value->firstname . " " .$value->name. " - " .$value->idUser."</option>"; ?>
+		@endforeach
+	</select>
+</div>
+<div class="demo-charts mdl-cell mdl-cell--3-col">
+	{{ Form::text('daterange', Input::old('name'), array('class' => 'mdl-textfield__input mdl-color--white mdl-shadow--2dp', 'id' => 'demo', 'style' => 'padding: 7px 11px')) }}
+</div>
+<div class="demo-charts mdl-cell  mdl-cell--1-col">
+	{{ Form::submit('Valider', array('class' => 'mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent', 'style' => 'width: 100%')) }}
+</div>
+<input type="hidden" name="dateStart" id="dateStart">
+<input type="hidden" name="dateEnd" id="dateEnd">
+
+{{ Form::close() }}
+
 @endsection
 @section('content')
 <script type="text/javascript" src="//cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
-<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css" />
+<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap/3/css/bootstrap.css"/>
 <script type="text/javascript" src="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.js"></script>
 <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/bootstrap.daterangepicker/2/daterangepicker.css" />
 <div class="panel panel-default" style="height: 100%; width: 100%">
-	<div class="panel-body" >
+	<div class="panel-body"  style="padding: 0;">
 		<script type="text/javascript">
 			$( document ).ready(function() {
 				var currentDateFirst = moment().startOf('day').format("YYYY/MM/DD H:m:s");
@@ -35,7 +40,7 @@
 				var lastMonthEnd = moment().subtract(1, 'month').endOf('month')
 				var last30Days = moment().subtract(30, 'days');
 				var last7Days = moment().subtract(7, 'days');
-				var yesterdayFirst = moment().subtract(1, 'day');
+				var yesterdayFirst = moment().subtract(1, 'day').startOf('day');
 				var yesterdayLast = moment().subtract(1, 'day').endOf('day');
 				$('#demo').daterangepicker({
 					"timePicker": true,
@@ -101,11 +106,25 @@
 						"firstDay": 1
 					},
 				}, function(start, end, label) {
-					console.log("New date range selected: ' + start.format('YYYY-MM-DD') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
+				document.getElementById('dateStart').value = start.format('YYYY-MM-DD H:m:s');
+				document.getElementById('dateEnd').value = end.format('YYYY-MM-DD H:m:s');
+					console.log("New date range selected: ' + start.format('YYYY-MM-DD H:m:s') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
 				});
 				
 			});
 		</script>
+
+<input type="text" name="dateStart" id="dateStart">
+<input type="text" name="dateEnd" id="dateEnd">
+
+		@if (isset($daterange))
+		{!! $daterange !!}
+		@endif
+
+		@if (isset($user))
+		{!! $user !!}
+		@endif
+
 		<div id="map" class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col" style="margin: 0; padding: 0; height: 93.3vh; width: 100%"></div>
 		<script>
 			function initMap() {
@@ -131,3 +150,6 @@
 	</div>
 </div>
 @endsection
+
+<div>
+</div>
