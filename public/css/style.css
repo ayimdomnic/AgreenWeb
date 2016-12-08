@@ -280,7 +280,7 @@ _:-ms-input-placeholder, :root .demo-graph {
   -webkit-transition: -webkit-transform 0.6s;
   transition: transform 0.6s;
 }
-.dropdown > .dropdown-menu {
+.dropdown > .dropdown-menu-agreen {
   max-height: 0;
   overflow: hidden;
   list-style: none;
@@ -302,16 +302,16 @@ _:-ms-input-placeholder, :root .demo-graph {
   -moz-animation: hideAnimation 0.4s ease-out;
   -webkit-animation: hideAnimation 0.4s ease-out;
 }
-.dropdown > .dropdown-menu li {
+.dropdown > .dropdown-menu-agreen li {
   padding: 0;
 }
-.dropdown > .dropdown-menu li a {
+.dropdown > .dropdown-menu-agreen li a {
   display: block;
   color: #6f6f6f;
   background: #777777;
   padding: 10px 10px;
 }
-.dropdown > .dropdown-menu li a:hover {
+.dropdown > .dropdown-menu-agreen li a:hover {
   background: #f6f6f6;
 }
 .dropdown > input[type="checkbox"] {
@@ -323,7 +323,7 @@ _:-ms-input-placeholder, :root .demo-graph {
   height: 100%;
   cursor: pointer;
 }
-.dropdown > input[type="checkbox"]:checked ~ .dropdown-menu {
+.dropdown > input[type="checkbox"]:checked ~ .dropdown-menu-agreen {
   max-height: 9999px;
   display: block;
   -moz-transform: scaleY(1);

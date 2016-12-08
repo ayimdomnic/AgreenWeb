@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Fitting;
 use App\BleSession;
 use App\Parcel;
+use App\User;
 use View;
 use Validator;
 use Input;
@@ -59,6 +60,8 @@ class FittingController extends Controller
       ->orderBy('timesFitting', 'desc')
       ->first();
 
+      $users = User::all();
+
       $fittings = Fitting::where('isSync', 0)
       ->where('idUser', $user->idUser)
       ->orderBy('timesFitting', 'asc')
@@ -66,56 +69,75 @@ class FittingController extends Controller
       ->get();
 
       return View::make('app.fitting.user')
-      ->with('fittings', $fittings);   
+      ->with('fittings', $fittings)
+      ->with('users', $users);   
     }
 
-    public function generateSessions(){
-      $startdate = 1;
-      $endDate = "00000-00-00 00:00:00";
-      $timesFitting = "00000-00-00 00:00:00";
+    public function showFittingsUserForm(Request $request){
+     $user = $request->user;
+     $daterange =  $request->daterange;
+     $dateStart =  $request->dateStart;
+     $dateEnd =  $request->dateEnd;
+
+     $fittings = Fitting::where('isSync', 0)
+     ->where('idUser', $user)
+     ->whereBetween('timesFitting', [$dateStart, $dateEnd])
+     ->get();
+     $users = User::all();
+
+     return view('app.fitting.user')
+     ->with('user', $user)
+     ->with('fittings', $fittings)
+     ->with('users', $users);
+   }
+
+   public function generateSessions(){
+    $startdate = 1;
+    $endDate = "00000-00-00 00:00:00";
+    $timesFitting = "00000-00-00 00:00:00";
 
       // change to asc
-      $row = Fitting::where('isSync', 0)
-      ->orderBy('timesFitting', 'desc')
-      ->first();
+    $row = Fitting::where('isSync', 0)
+    ->orderBy('timesFitting', 'desc')
+    ->first();
 
-      $fittings = Fitting::where('isSync', 0)
-      ->where('idUser', $row->idUser)
-      ->orderBy('timesFitting', 'asc')
-      ->take(1000)
-      ->get();
+    $fittings = Fitting::where('isSync', 0)
+    ->where('idUser', $row->idUser)
+    ->orderBy('timesFitting', 'asc')
+    ->take(1000)
+    ->get();
 
-      foreach ($fittings as $fit) {
-        if ($startdate == 1) {
-          $startdate =  $fit->timesFitting;
-          $timesFitting = $fit->timesFitting;
-        }
-
-        $timesFittingDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $timesFitting);
-        $currentFitDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $fit->timesFitting);
-        $diff = $currentFitDateTime->diff($timesFittingDateTime); 
-
-        if ($diff->i > 5) {
-          $endDate = $timesFitting; 
-
-          $blesession = new BleSession;
-          $blesession->idUser = $row->idUser;
-          $blesession->mac = $row->Mac;
-          $blesession->startDate = $startdate;
-          $blesession->endDate = $endDate;
-          $blesession->isSync = 0;
-          $blesession->save();
-
-          $timesFitting = $fit->timesFitting;
-          $startdate = $fit->timesFitting;
-        }else{
-          $timesFitting = $fit->timesFitting;
-        }
-        $fitting = Fitting::find($row->id);
-        $fitting->isSync = 1;
-        $fitting->save();
+    foreach ($fittings as $fit) {
+      if ($startdate == 1) {
+        $startdate =  $fit->timesFitting;
+        $timesFitting = $fit->timesFitting;
       }
-      return View::make('app.fitting.session')
-      ->with('message', "AJH AH HA ");   
+
+      $timesFittingDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $timesFitting);
+      $currentFitDateTime = DateTime::createFromFormat('Y-m-d H:i:s', $fit->timesFitting);
+      $diff = $currentFitDateTime->diff($timesFittingDateTime); 
+
+      if ($diff->i > 5) {
+        $endDate = $timesFitting; 
+
+        $blesession = new BleSession;
+        $blesession->idUser = $row->idUser;
+        $blesession->mac = $row->Mac;
+        $blesession->startDate = $startdate;
+        $blesession->endDate = $endDate;
+        $blesession->isSync = 0;
+        $blesession->save();
+
+        $timesFitting = $fit->timesFitting;
+        $startdate = $fit->timesFitting;
+      }else{
+        $timesFitting = $fit->timesFitting;
+      }
+      $fitting = Fitting::find($row->id);
+      $fitting->isSync = 1;
+      $fitting->save();
     }
+    return View::make('app.fitting.session')
+    ->with('message', "AJH AH HA ");   
   }
+}

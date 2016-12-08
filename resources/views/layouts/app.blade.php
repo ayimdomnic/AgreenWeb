@@ -70,42 +70,41 @@
           <li class="dropdown">
             <a href="#" data-toggle="dropdown" class="mdl-navigation__link"><i
               class="mdl-color-text--blue-grey-400 material-icons">directions_car</i>Captures</a><input type="checkbox"/>
-              <ul class="dropdown-menu">
+              <ul class="dropdown-menu-agreen">
                 <li><a class="mdl-navigation__link black" href="{{ URL::to('event') }}">Events</a>
                 </li>
                 <li><a class="mdl-navigation__link black" href="{{ URL::to('showEventsUser') }}">Events User</a>
                 </li>
               </ul>
             </li>
-
             <li class="dropdown">
               <a href="#" data-toggle="dropdown" class="mdl-navigation__link"><i
                 class="mdl-color-text--blue-grey-400 material-icons">bluetooth_connected</i>Fitting</a><input type="checkbox"/>
-                <ul class="dropdown-menu">
+                <ul class="dropdown-menu-agreen">
                   <li><a class="mdl-navigation__link black" href="{{ URL::to('fitting') }}">Fittings</a>
                   </li>
                   <li><a class="mdl-navigation__link black" href="{{ URL::to('showFittingsUser') }}">Fitting by user</a>
                   </li>
                 </ul>
               </li>
-            <li class="dropdown">
-              <a href="#" data-toggle="dropdown" class="mdl-navigation__link"><i
-                class="mdl-color-text--blue-grey-400 material-icons">access_time</i>Sessions</a><input type="checkbox"/>
-                <ul class="dropdown-menu">
-                  <li><a class="mdl-navigation__link black" href="{{ URL::to('blesession') }}">Sessions</a>
-                  </li>
-                  <li><a class="mdl-navigation__link black" href="{{ URL::to('generateSessions') }}">Générer les sessions</a>
-                  </li>
-                </ul>
-              </li>
-              <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">computer</i>GIE</a>
-              <a class="mdl-navigation__link" href="{{ URL::to('parcel') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">inbox</i>Parcelles</a> 
-            </nav>
-          </div>
-          <main class="mdl-layout__content mdl-color--grey-100">
-            <div class="mdl-grid">
-              @yield('content')
+              <li class="dropdown">
+                <a href="#" data-toggle="dropdown" class="mdl-navigation__link"><i
+                  class="mdl-color-text--blue-grey-400 material-icons">access_time</i>Sessions</a><input type="checkbox"/>
+                  <ul class="dropdown-menu-agreen">
+                    <li><a class="mdl-navigation__link black" href="{{ URL::to('blesession') }}">Sessions</a>
+                    </li>
+                    <li><a class="mdl-navigation__link black" href="{{ URL::to('generateSessions') }}">Générer les sessions</a>
+                    </li>
+                  </ul>
+                </li>
+                <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">computer</i>GIE</a>
+                <a class="mdl-navigation__link" href="{{ URL::to('parcel') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">inbox</i>Parcelles</a> 
+              </nav>
             </div>
-          </div>
-        </body>
-        </html>
+            <main class="mdl-layout__content mdl-color--grey-100">
+              <div class="mdl-grid">
+                @yield('content')
+              </div>
+            </div>
+          </body>
+          </html>
