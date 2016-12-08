@@ -100,13 +100,15 @@ class FittingController extends Controller
     ->orderBy('timesFitting', 'asc')
     ->first();
 
-    $fittings = Fitting::where('isSync', 0)
-    ->where('idUser', $row->idUser)
-    ->orderBy('timesFitting', 'asc')
-    ->take(1000)
-    ->get();
+    if (!empty($row)){
+      $fittings = Fitting::where('isSync', 0)
+      ->where('idUser', $row->idUser)
+      ->orderBy('timesFitting', 'asc')
+      ->take(1000)
+      ->get();
+    }
 
-    if (!empty($fittings)){
+    if (!empty($fittings) || !isset($fittings)){
       foreach ($fittings as $fit) {
         if ($startdate == 1) {
           $startdate =  $fit->timesFitting;
