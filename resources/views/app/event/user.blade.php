@@ -106,25 +106,12 @@
 						"firstDay": 1
 					},
 				}, function(start, end, label) {
-				document.getElementById('dateStart').value = start.format('YYYY-MM-DD H:m:s');
-				document.getElementById('dateEnd').value = end.format('YYYY-MM-DD H:m:s');
+					document.getElementById('dateStart').value = start.format('YYYY-MM-DD H:m:s');
+					document.getElementById('dateEnd').value = end.format('YYYY-MM-DD H:m:s');
 					console.log("New date range selected: ' + start.format('YYYY-MM-DD H:m:s') + ' to ' + end.format('YYYY-MM-DD') + ' (predefined range: ' + label + ')");
 				});
-				
 			});
 		</script>
-
-<input type="text" name="dateStart" id="dateStart">
-<input type="text" name="dateEnd" id="dateEnd">
-
-		@if (isset($daterange))
-		{!! $daterange !!}
-		@endif
-
-		@if (isset($user))
-		{!! $user !!}
-		@endif
-
 		<div id="map" class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col" style="margin: 0; padding: 0; height: 93.3vh; width: 100%"></div>
 		<script>
 			function initMap() {

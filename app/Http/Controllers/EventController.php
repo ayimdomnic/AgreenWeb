@@ -50,12 +50,13 @@ class EventController extends Controller
      $dateEnd =  $request->dateEnd;
 
      $events = Event::where('idUser', $user)
+     ->where('idUser', $user)
+     ->whereBetween('dateGps', [$dateStart, $dateEnd])
      ->get();
      $users = User::all();
 
      return view('app.event.user')
      ->with('user', $user)
-     ->with('daterange', $daterange) 
      ->with('events', $events)
      ->with('users', $users);
    }
