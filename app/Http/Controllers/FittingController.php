@@ -106,7 +106,7 @@ class FittingController extends Controller
     ->take(1000)
     ->get();
 
-    if (isset($fittings)){
+    if (!empty($fittings)){
       foreach ($fittings as $fit) {
         if ($startdate == 1) {
           $startdate =  $fit->timesFitting;
