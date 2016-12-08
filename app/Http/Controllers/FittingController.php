@@ -39,7 +39,7 @@ class FittingController extends Controller
       return View::make('app.fitting.user')
       ->with('fittings', $fittings);   
 
-      //         // get all the parcels
+      // get all the parcels
       // $fittings = Fitting::all();
 
       //   // load the view and pass the parcels

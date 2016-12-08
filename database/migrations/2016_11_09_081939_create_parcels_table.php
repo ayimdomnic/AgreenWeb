@@ -15,10 +15,13 @@ class CreateParcelsTable extends Migration
     {
         Schema::create('parcels', function (Blueprint $table) {
             $table->increments('id');
+            $table->Integer('idGie');
+            $table->Integer('idGaec');
             $table->string('name');
             $table->string('type');
             $table->string('desc');
             $table->string('area');
+            $table->BigInteger('sau');
             $table->string('statut');
             $table->timestamps();
         });
