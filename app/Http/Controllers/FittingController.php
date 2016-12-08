@@ -96,9 +96,8 @@ class FittingController extends Controller
     $endDate = "00000-00-00 00:00:00";
     $timesFitting = "00000-00-00 00:00:00";
 
-      // change to asc
     $row = Fitting::where('isSync', 0)
-    ->orderBy('timesFitting', 'desc')
+    ->orderBy('timesFitting', 'asc')
     ->first();
 
     $fittings = Fitting::where('isSync', 0)
@@ -133,7 +132,7 @@ class FittingController extends Controller
       }else{
         $timesFitting = $fit->timesFitting;
       }
-      $fitting = Fitting::find($row->id);
+      $fitting = Fitting::find($fit->id);
       $fitting->isSync = 1;
       $fitting->save();
     }
