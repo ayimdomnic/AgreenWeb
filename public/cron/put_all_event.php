@@ -1,10 +1,9 @@
 <?php
-$servername = "agreenbeta.quoram.fr";
+$servername = "localhost";
 $dbname = "agreenweb";
-$username = "app";
+$username = "root";
 $password = "x76gft96";
 $port="3306";
-
 
 try{
     $cnx = new PDO('mysql:host='.$servername.';port='.$port.';dbname='.$dbname, $username, $password);
