@@ -37,6 +37,8 @@ Route::get('/showFittingsUser', 'FittingController@showFittingsUser');
 
 Route::get('/generateSessions', 'FittingController@generateSessions');
 
+Route::get('/scanIsInsideParcel', 'EventController@scanIsInsideParcel');
+
 Route::post('showEventUserForm', 'EventController@showEventsUserForm');
 
 Route::post('showFittingsUserForm', 'FittingController@showFittingsUserForm');

@@ -23,13 +23,11 @@
 {{ Html::script('js/timeline.js') }}
 <div class="panel panel-default" style="height: 100%; width: 100%">
 	<div class="panel-body" >
-		<?php
-		
-		?>
 		<div id="visualization" class="mdl-cell mdl-cell--12-col mdl-color--white mdl-shadow--2dp" style="margin-top: 12.5%"></div>
 		<script type="text/javascript">
 			var container = document.getElementById('visualization');
 			var items = new vis.DataSet([
+				@if(isset($fittings))
 				@foreach($fittings as $key => $value)
 				<?php
 				echo "{id:" ;
@@ -41,6 +39,7 @@
 				echo "'},"; 
 				?>
 				@endforeach
+				@endif
 				]);
 			var options = {
 				width: '100%',

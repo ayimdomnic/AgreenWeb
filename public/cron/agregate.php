@@ -12,7 +12,6 @@ $Agregate = new Agregate();
 //Connection au VPS
 $connection = $Agregate->connection($dbname, $servername, $dbuser, $dbpass);
 
-
 //Récupération des events
 $arrayEvents = array();
 $arrayEvents = $Agregate->getEvents($connection);

@@ -21,6 +21,8 @@ class CreateParcelsTable extends Migration
             $table->string('type');
             $table->string('desc');
             $table->string('area');
+            $table->string('lat');
+            $table->string('lon');
             $table->BigInteger('sau');
             $table->string('statut');
             $table->timestamps();

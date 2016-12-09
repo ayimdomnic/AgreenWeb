@@ -36,7 +36,10 @@ class FittingController extends Controller
       ->orderBy('timesFitting', 'ASC')
       ->take(1000)
       ->get();
+      $users = User::all();
+
       return View::make('app.fitting.user')
+      ->with('users', $users)   
       ->with('fittings', $fittings);   
 
       // get all the parcels
@@ -59,16 +62,18 @@ class FittingController extends Controller
       $user = Fitting::where('isSync', 0)
       ->orderBy('timesFitting', 'desc')
       ->first();
-
       $users = User::all();
-
-      $fittings = Fitting::where('isSync', 0)
-      ->where('idUser', $user->idUser)
-      ->orderBy('timesFitting', 'asc')
-      ->take(1000)
-      ->get();
-
+      if (!empty($user)){
+        $fittings = Fitting::where('isSync', 0)
+        ->where('idUser', $user->idUser)
+        ->orderBy('timesFitting', 'asc')
+        ->take(1000)
+        ->get();
+      }else{
+        $fittings = null;
+      }
       return View::make('app.fitting.user')
+      ->with('user', $user)
       ->with('fittings', $fittings)
       ->with('users', $users);   
     }
@@ -83,6 +88,7 @@ class FittingController extends Controller
      ->where('idUser', $user)
      ->whereBetween('timesFitting', [$dateStart, $dateEnd])
      ->get();
+
      $users = User::all();
 
      return view('app.fitting.user')
