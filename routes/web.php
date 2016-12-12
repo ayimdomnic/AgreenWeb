@@ -39,7 +39,7 @@ Route::get('/showFittingsUser', 'FittingController@showFittingsUser');
 
 Route::get('/showParcels', 'ParcelController@showParcels');
 
-Route::get('/generateSessions', 'FittingController@generateSessions');
+Route::get('/generateBleSessions', 'FittingController@generateSessions');
 
 Route::get('/scanIsInsideParcel', 'EventController@scanIsInsideParcel');
 
