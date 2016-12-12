@@ -67,7 +67,7 @@ class EventController extends Controller
    public function scanIsInsideParcel(){
 
     $pointLocation = new PointLocation();
-    $events = Event::take(2000)
+    $events = Event::take(1000)
     ->orderBy('dateGps', 'ASC')
     ->get();
 
