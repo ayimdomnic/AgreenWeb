@@ -5,6 +5,16 @@
 	<div class="panel-body"  style="padding: 0;">
 		<div id="map" class="mdl-color--white mdl-shadow--2dp mdl-cell mdl-cell--12-col" style="margin: 0; padding: 0; height: 93.3vh; width: 100%"></div>
 		<script>
+
+			function getRandomColor() {
+				var letters = '0123456789ABCDEF';
+				var color = '#';
+				for (var i = 0; i < 6; i++ ) {
+					color += letters[Math.floor(Math.random() * 16)];
+				}
+				return color;
+			}
+
 			function initMap() {
 				var map = new google.maps.Map(document.getElementById('map'), {
 					center: {lat: 45, lng: 4},
@@ -13,29 +23,41 @@
 					zoom: 9
 				});
 
-				var triangleCoords = [
-				{lat: 25.774, lng: -80.190},
-				{lat: 18.466, lng: -66.118},
-				{lat: 32.321, lng: -64.757},
-				{lat: 25.774, lng: -80.190}
-				];
+				<?php $count = 0;?>
 
-  // Construct the polygon.
-  var bermudaTriangle = new google.maps.Polygon({
-  	paths: triangleCoords,
-  	strokeColor: '#FF0000',
-  	strokeOpacity: 0.8,
-  	strokeWeight: 2,
-  	fillColor: '#FF0000',
-  	fillOpacity: 0.35
-  });
-  bermudaTriangle.setMap(map);
+				@foreach($parcels as $key => $value)
+				<?php
+				$count ++;
+				echo "var parcelCoords". $count. " = [";
 
-}
-</script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBesZqDS4WItvSK-8xGDStpn7bKuVXZYkE&callback=initMap"
-async defer></script>
-</div>
+				foreach ($value as $key => $value) {
+					echo "{lat:";
+					echo $value->lat;
+					echo ", lng: ";
+					echo $value->long;
+					echo "},"; 
+				}
+
+				echo "];"; 
+
+				echo "var parcel". $count. " = new google.maps.Polygon({";
+				echo "paths: parcelCoords" . $count .",";
+				echo "strokeColor: 'red',";
+				echo "strokeOpacity: 0.8,";
+				echo "strokeWeight: 0.3,";
+				echo "fillColor: getRandomColor(),";
+				echo "fillOpacity: 0.5});";
+
+				echo "parcel". $count. ".setMap(map);";
+				?>
+
+				@endforeach
+
+			}
+		</script>
+		<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBesZqDS4WItvSK-8xGDStpn7bKuVXZYkE&callback=initMap"
+		async defer></script>
+	</div>
 </div>
 @endsection
 <div>

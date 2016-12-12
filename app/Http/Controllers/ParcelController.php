@@ -164,7 +164,6 @@ class ParcelController extends Controller
         ->orderBy('number')
         ->select('lat', 'long')
         ->get();    
-
         array_push($parcelsGpsArray , $parcelsGps);
     }
         // load the view and pass the parcels
