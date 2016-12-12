@@ -27,6 +27,8 @@ Route::resource('fitting', 'FittingController');
 
 Route::resource('blesession', 'BleSessionController');
 
+Route::resource('processedevents', 'ProcessedEventsController');
+
 Route::get('/home', 'HomeController@index');
 
 Route::get('/app', 'AppController@index');

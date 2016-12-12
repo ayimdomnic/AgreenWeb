@@ -13,7 +13,7 @@ class CreateProcessedeventsTable extends Migration
      */
     public function up()
     {
-        Schema::create('processedevents', function (Blueprint $table) {
+        Schema::create('processed_events', function (Blueprint $table) {
         $table->increments('id');
         $table->string('idApp');
         $table->string('idUser');
@@ -37,7 +37,7 @@ class CreateProcessedeventsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('processedevents');
+        Schema::dropIfExists('processed_events');
         //
     }
 }
