@@ -44,3 +44,7 @@ Route::get('/scanIsInsideParcel', 'EventController@scanIsInsideParcel');
 Route::post('showEventUserForm', 'EventController@showEventsUserForm');
 
 Route::post('showFittingsUserForm', 'FittingController@showFittingsUserForm');
+
+Route::get('showParcelsEvents', 'ParcelController@showParcelsEvents');
+
+Route::post('showParcelsEventsForm', 'ParcelController@showParcelsEventsForm');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Parcel;
 use App\ParcelGps;
+use App\User;
+use App\Event;
 use View;
 use Validator;
 use Input;
@@ -13,8 +15,8 @@ use Illuminate\Http\Request;
 
 class ParcelController extends Controller
 {
-   public function __construct()
-   {
+ public function __construct()
+ {
     $this->middleware('auth');
 }
     /**
@@ -147,15 +149,15 @@ class ParcelController extends Controller
      */
     public function destroy($id)
     {
-     $parcel = Parcel::find($id);
-     $parcel->delete();
+       $parcel = Parcel::find($id);
+       $parcel->delete();
 
         // redirect
-     Session::flash('message', 'Successfully deleted the parcel!');
-     return Redirect::to('parcel');
- }
+       Session::flash('message', 'Successfully deleted the parcel!');
+       return Redirect::to('parcel');
+   }
 
- public function showParcels(){
+   public function showParcels(){
     $parcels = Parcel::all();
 
     $parcelsGpsArray = [];
@@ -169,6 +171,62 @@ class ParcelController extends Controller
         // load the view and pass the parcels
     return View::make('app.parcel.show')
     ->with('parcels', $parcelsGpsArray);   
+}
+
+
+public function showParcelsEvents(){
+
+    $events = Event::take(100)
+    ->get();
+    $users = User::all();
+
+    $parcels = Parcel::all();
+
+    $parcelsGpsArray = [];
+    foreach ($parcels as $key => $value) {
+        $parcelsGps = ParcelGps::where('idparcel', $value->id)
+        ->orderBy('number')
+        ->select('lat', 'long')
+        ->get();    
+        array_push($parcelsGpsArray , $parcelsGps);
+    }
+        // load the view and pass the parcels
+    return View::make('app.parcel.showevent')
+    ->with('parcels', $parcelsGpsArray)
+    ->with('events', $events)
+    ->with('users', $users); 
+}
+
+
+public function showParcelsEventsForm(Request $request){
+
+ $user = $request->user;
+ $daterange =  $request->daterange;
+ $dateStart =  $request->dateStart;
+ $dateEnd =  $request->dateEnd;
+
+ $events = Event::where('idUser', $user)
+ ->where('idUser', $user)
+ ->whereBetween('dateGps', [$dateStart, $dateEnd])
+ ->get();
+ $users = User::all();
+
+ $parcels = Parcel::all();
+
+ $parcelsGpsArray = [];
+ foreach ($parcels as $key => $value) {
+    $parcelsGps = ParcelGps::where('idparcel', $value->id)
+    ->orderBy('number')
+    ->select('lat', 'long')
+    ->get();    
+    array_push($parcelsGpsArray , $parcelsGps);
+}
+        // load the view and pass the parcels
+return View::make('app.parcel.showevent')
+->with('parcels', $parcelsGpsArray)
+->with('events', $events)
+->with('users', $users)
+->with('user', $user); 
 }
 
 }
