@@ -7,6 +7,7 @@ use App\Event;
 use App\User;
 use App\Parcel;
 use App\ParcelGps;
+use App\PointLocation;
 use View;
 use Validator;
 use Input;
@@ -64,18 +65,45 @@ class EventController extends Controller
    }
 
    public function scanIsInsideParcel(){
-     $events = Event::take(1000)
-     ->orderBy('dateGps', 'ASC')
-     ->get();
 
-     foreach ($events as $key => $value) {
+    $pointLocation = new PointLocation();
+    $events = Event::take(2000)
+    ->orderBy('dateGps', 'ASC')
+    ->get();
+
+    foreach ($events as $key => $value) {
+
+        $latLonEvent = $value->lat . ",".$value->lon;
+        $event = $value;
         $parcels = Parcel::orderBy('lat', '-', $value->lat, 'ASC')
-         ->take(20)
-         ->get();
-     }
+        ->take(20)
+        ->get();
 
-     foreach ($parcels as $key => $value) {
-         $parcelsGps = ParcelGps::
-     }
- }
+        foreach ($parcels as $key => $value) {
+            $parcelsGps = ParcelGps::where('idparcel', $value->id)
+            ->orderBy('number', 'ASC')
+            ->get();
+
+            $polygon = array();
+            foreach ($parcelsGps as $key => $value) {
+                $latlng = "" . $value->lat . ", ". $value->long . "";
+                $idparcelEvent = $value->idparcel;
+                array_push($polygon, $latlng);
+            }
+
+            // echo $latLonEvent;
+            // var_dump($polygon);
+            // echo $event;
+            // echo $idparcelEvent;
+            // echo "</br>";
+
+            $isPointInside = $pointLocation->pointInPolygon($latLonEvent, $polygon, $event, $idparcelEvent);
+            if ($isPointInside == 1) {
+                echo $isPointInside;
+                echo "</br>";
+            }
+        }
+    }
+
+}
 }

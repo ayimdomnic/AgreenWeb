@@ -104,13 +104,23 @@
               </ul>
             </li>
             <a class="mdl-navigation__link" href=""><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">computer</i>GIE</a>
-            <a class="mdl-navigation__link" href="{{ URL::to('parcel') }}"><i class="mdl-color-text--white-grey-400 material-icons" role="presentation">inbox</i>Parcelles</a> 
-          </nav>
-        </div>
-        <main class="mdl-layout__content mdl-color--grey-100">
-          <div class="mdl-grid" style="padding: 0;">
-            @yield('content')
+
+            <li class="dropdown">
+              <a href="#" data-toggle="dropdown" class="mdl-navigation__link"><i
+                class="mdl-color-text--blue-grey-400 material-icons">inbox</i>Parcelles</a><input type="checkbox"/>
+                <ul class="dropdown-menu-agreen">
+                  <li><a class="mdl-navigation__link black" href="{{ URL::to('parcel') }}">Parcelles</a>
+                  </li>
+                  <li><a class="mdl-navigation__link black" href="{{ URL::to('showParcels') }}">fittings by user</a>
+                  </li>
+                </ul>
+              </li>
+            </nav>
           </div>
-        </div>
-      </body>
-      </html>
+          <main class="mdl-layout__content mdl-color--grey-100">
+            <div class="mdl-grid" style="padding: 0;">
+              @yield('content')
+            </div>
+          </div>
+        </body>
+        </html>

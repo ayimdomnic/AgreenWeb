@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Parcel;
+use App\ParcelGps;
 use View;
 use Validator;
 use Input;
@@ -12,10 +13,10 @@ use Illuminate\Http\Request;
 
 class ParcelController extends Controller
 {
-     public function __construct()
-    {
-        $this->middleware('auth');
-    }
+   public function __construct()
+   {
+    $this->middleware('auth');
+}
     /**
      * Display a listing of the resource.
      *
@@ -146,12 +147,29 @@ class ParcelController extends Controller
      */
     public function destroy($id)
     {
-       $parcel = Parcel::find($id);
-       $parcel->delete();
+     $parcel = Parcel::find($id);
+     $parcel->delete();
 
         // redirect
-       Session::flash('message', 'Successfully deleted the parcel!');
-       return Redirect::to('parcel');
-   }
+     Session::flash('message', 'Successfully deleted the parcel!');
+     return Redirect::to('parcel');
+ }
+
+ public function showParcels(){
+    $parcels = Parcel::all();
+
+    $parcelsGpsArray = [];
+    foreach ($parcels as $key => $value) {
+        $parcelsGps = ParcelGps::where('idparcel', $value->id)
+        ->orderBy('number')
+        ->select('lat', 'long')
+        ->get();    
+
+        array_push($parcelsGpsArray , $parcelsGps);
+    }
+        // load the view and pass the parcels
+    return View::make('app.parcel.show')
+    ->with('parcels', $parcelsGpsArray);   
+}
 
 }
