@@ -1,5 +1,5 @@
 <?php
-use App/Fitting;
+use App\Fitting;
 
 $data = json_decode(file_get_contents('php://input'), true);
 
