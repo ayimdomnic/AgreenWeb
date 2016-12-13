@@ -18,11 +18,6 @@ use DateTime;
 
 class EventController extends Controller
 {
-     /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
     /**
      * Show the application dashboard.
      *
@@ -31,7 +26,6 @@ class EventController extends Controller
     public function index()
     {
      $this->middleware('auth');
-
      return view('app.event.index');
    }
 
