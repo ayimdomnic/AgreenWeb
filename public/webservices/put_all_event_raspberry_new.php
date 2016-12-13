@@ -1,9 +1,4 @@
 <?php
-
-use App\Event;
-
-$event = new Event;
-
 $servername = "localhost";
 $dbname = "agreenweb";
 $username = "root";
@@ -19,6 +14,7 @@ catch(PDOException $e)
 }
 $data = json_decode(file_get_contents('php://input'), true);
 $fileName = "9999111";
+
 
 foreach ($data as $result) {
     $id = $result["0"];

@@ -50,7 +50,3 @@ Route::post('showFittingsUserForm', 'FittingController@showFittingsUserForm');
 Route::get('showParcelsEvents', 'ParcelController@showParcelsEvents');
 
 Route::post('showParcelsEventsForm', 'ParcelController@showParcelsEventsForm');
-
-Route::post('webservices/receiveEventsRaspberry', 'EventController@receiveEventsRaspberry');
-
-Route::post('webservices/receiveBleRapsberry', 'FittingController@receiveFittingsRaspberry');

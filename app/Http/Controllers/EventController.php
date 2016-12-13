@@ -133,31 +133,31 @@ class EventController extends Controller
     }
   }
 
-  public function receiveEventsRaspberry(){
-    try{
-      $data = json_decode(file_get_contents('php://input'), true);
-    }catch(Exception $e)
-    {
-      echo $e->getMessage();
-    }
-    try{
-      foreach ($data as $key => $value) {
-        $event = new Event;
-        $event->idApp = $value->id;
-        $event->idUser = $value->iduser;
-        $event->name = $value->name;
-        $event->lon = $value->Lon;
-        $event->lat = $value->Lat;
-        $event->dateGps = $value->dateGps;
-        $event->isInside = 0;
-        $event->idParcelle = 0;
-        $event->altitude = 0;
-        $event->isSync = 0;
-        $event->save();
-      }
-    }catch(Exception $e)
-    {
-      echo $e->getMessage();
-    }
-  }
+  // public function receiveEventsRaspberry(){
+  //   try{
+  //     $data = json_decode(file_get_contents('php://input'), true);
+  //   }catch(Exception $e)
+  //   {
+  //     echo $e->getMessage();
+  //   }
+  //   try{
+  //     foreach ($data as $key => $value) {
+  //       $event = new Event;
+  //       $event->idApp = $value->id;
+  //       $event->idUser = $value->iduser;
+  //       $event->name = $value->name;
+  //       $event->lon = $value->Lon;
+  //       $event->lat = $value->Lat;
+  //       $event->dateGps = $value->dateGps;
+  //       $event->isInside = 0;
+  //       $event->idParcelle = 0;
+  //       $event->altitude = 0;
+  //       $event->isSync = 0;
+  //       $event->save();
+  //     }
+  //   }catch(Exception $e)
+  //   {
+  //     echo $e->getMessage();
+  //   }
+  // }
 }
