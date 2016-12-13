@@ -42,7 +42,7 @@ class EventController extends Controller
    }
 
    public function showEventsUserForm(Request $request){
-     
+
      $this->middleware('auth');
      $user = $request->user;
      $daterange =  $request->daterange;
@@ -133,12 +133,12 @@ class EventController extends Controller
   public function receiveEventsRaspberry(Request $request){
     $test = response()->json([$request->json('data'), 200]);
     $event = new Event;
-    $event->idApp = 123123;
-    $event->idUser = "TEST";
-    $event->name = "TEST";
-    $event->lon = 0;
-    $event->lat = 0;
-    $event->dateGps = "2016-12-12 16:03:06";
+    $event->idApp = $value->id;
+    $event->idUser = $value->iduser;
+    $event->name = $value->name;
+    $event->lon = $value->Lon;
+    $event->lat = $value->Lat;
+    $event->dateGps = $value->dateGps;
     $event->isInside = 0;
     $event->idParcelle = 0;
     $event->altitude = 0;

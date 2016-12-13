@@ -19,3 +19,5 @@ Route::get('/user', function (Request $request) {
 
 
 Route::post('/receiveEventsRaspberry','EventController@receiveEventsRaspberry');
+
+Route::post('/receiveFittingsRaspberry','FittingController@receiveFittingsRaspberry');

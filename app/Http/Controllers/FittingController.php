@@ -149,4 +149,20 @@ class FittingController extends Controller
     return View::make('app.fitting.session')
     ->with('message', "Sessions générées");   
   }
+
+  public function receiveFittingsRaspberry(Request $request){
+    $test = response()->json([$request->json('data'), 200]);
+    $event = new Event;
+    $event->idApp = $value->id;
+    $event->idUser = $value->iduser;
+    $event->name = $value->name;
+    $event->lon = $value->Lon;
+    $event->lat = $value->Lat;
+    $event->dateGps = $value->dateGps;
+    $event->isInside = 0;
+    $event->idParcelle = 0;
+    $event->altitude = 0;
+    $event->isSync = 0;
+    $event->save();
+  }
 }
