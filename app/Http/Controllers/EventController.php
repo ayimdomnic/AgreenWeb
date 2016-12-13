@@ -133,8 +133,6 @@ class EventController extends Controller
     }
   }
 
-) {
-
   public function receiveEventsRaspberry(Request $request){
       $test = response()->json([$request->json('data'), 200]);
       $event = new Event;
