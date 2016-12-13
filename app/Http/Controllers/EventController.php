@@ -132,7 +132,7 @@ class EventController extends Controller
 
   public function receiveEventsRaspberry(Request $request){
     $data = response()->json([$request->json('data'), 200]);
-    foreach ($data as $key => $value) {
+    foreach ($data as $value) {
       $event = new Event;
       $event->idApp = $value->id;
       $event->idUser = $value->iduser;
