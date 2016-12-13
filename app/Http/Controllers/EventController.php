@@ -133,19 +133,19 @@ class EventController extends Controller
   public function receiveEventsRaspberry(Request $request){
     $data = json_decode(file_get_contents('php://input'), true);
 
-    $fix_date = $result["3"];
-    $fix_time = $result["4"];
-    $fix_date_day = substr($fix_date, -6, 2);
-    $fix_date_month = substr($fix_date, -4, 2);
-    $fix_date_year = substr($fix_date, -2, 2);
-    $dateTimeGPS = "20" . $fix_date_year . "-" . $fix_date_month .  "-" . $fix_date_day;
-    $fix_time_hours = substr($fix_time, -10, 2);
-    $fix_time_minutes = substr($fix_time, -8, 2);
-    $fix_time_seconds = substr($fix_time, -6, 2);
-    $heureGps = "" . $fix_time_hours . ":" . $fix_time_minutes .  ":" . $fix_time_seconds;
-    $dateGPS = $dateTimeGPS . " " . $heureGps;
-    
-    foreach ($data as $value) {
+    foreach ($data as $result) {
+      $fix_date = $result["3"];
+      $fix_time = $result["4"];
+      $fix_date_day = substr($fix_date, -6, 2);
+      $fix_date_month = substr($fix_date, -4, 2);
+      $fix_date_year = substr($fix_date, -2, 2);
+      $dateTimeGPS = "20" . $fix_date_year . "-" . $fix_date_month .  "-" . $fix_date_day;
+      $fix_time_hours = substr($fix_time, -10, 2);
+      $fix_time_minutes = substr($fix_time, -8, 2);
+      $fix_time_seconds = substr($fix_time, -6, 2);
+      $heureGps = "" . $fix_time_hours . ":" . $fix_time_minutes .  ":" . $fix_time_seconds;
+      $dateGPS = $dateTimeGPS . " " . $heureGps;
+      
       $event = new Event;
       $event->idApp = $result["0"];
       $event->idUser = $result["7"];
