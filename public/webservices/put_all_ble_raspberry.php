@@ -10,7 +10,11 @@ foreach ($data as $result) {
     $fitting->type = 1;
     $fitting->timesFitting = $result["3"];
     $fitting->isSync = 0;
+    try {
     $fitting->save();
+    } catch (Exception $e) {
+    	return $e;
+    }
 }
 ?>
 
