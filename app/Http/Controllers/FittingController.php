@@ -151,18 +151,17 @@ class FittingController extends Controller
   }
 
   public function receiveFittingsRaspberry(Request $request){
-    $test = response()->json([$request->json('data'), 200]);
-    $event = new Event;
-    $event->idApp = $value->id;
-    $event->idUser = $value->iduser;
-    $event->name = $value->name;
-    $event->lon = $value->Lon;
-    $event->lat = $value->Lat;
-    $event->dateGps = $value->dateGps;
-    $event->isInside = 0;
-    $event->idParcelle = 0;
-    $event->altitude = 0;
-    $event->isSync = 0;
-    $event->save();
+    $data = json_decode(file_get_contents('php://input'), true);
+
+    foreach ($data as $result) {
+      $fitting = new Fitting;
+      $fitting->Mac = $result["1"];
+      $fitting->idUser = $result["2"];
+      $fitting->type = 1
+      $fitting->timesFitting = $result["3"];
+      $fitting->isSync = 0;
+      $fitting->save();
+    }
+
   }
 }

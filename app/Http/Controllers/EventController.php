@@ -132,7 +132,6 @@ class EventController extends Controller
 
   public function receiveEventsRaspberry(Request $request){
     $data = json_decode(file_get_contents('php://input'), true);
-
     foreach ($data as $result) {
       $fix_date = $result["3"];
       $fix_time = $result["4"];
