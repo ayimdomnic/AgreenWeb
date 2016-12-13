@@ -23,10 +23,6 @@ class EventController extends Controller
      *
      * @return void
      */
-     public function __construct()
-     {
-       $this->middleware('auth');
-     }
     /**
      * Show the application dashboard.
      *
@@ -34,11 +30,15 @@ class EventController extends Controller
      */
     public function index()
     {
-    	return view('app.event.index');
-    }
+     $this->middleware('auth');
 
-    public function showEventsUser()
-    {
+     return view('app.event.index');
+   }
+
+   public function showEventsUser()
+   {
+     $this->middleware('auth');
+
      $events = Event::take(100)
      ->get();
      $users = User::all();
@@ -48,6 +48,8 @@ class EventController extends Controller
    }
 
    public function showEventsUserForm(Request $request){
+     
+     $this->middleware('auth');
      $user = $request->user;
      $daterange =  $request->daterange;
      $dateStart =  $request->dateStart;
@@ -66,14 +68,15 @@ class EventController extends Controller
    }
 
    public function scanIsInsideParcel(){
+     $this->middleware('auth');
 
-    $pointLocation = new PointLocation();
-    $events = Event::take(1000)
-    ->orderBy('dateGps', 'ASC')
-    ->get();
+     $pointLocation = new PointLocation();
+     $events = Event::take(1000)
+     ->orderBy('dateGps', 'ASC')
+     ->get();
 
 
-    foreach ($events as $key => $value) {
+     foreach ($events as $key => $value) {
 
       $latLonEvent = $value->lat . ",".$value->lon;
       $event = $value;
@@ -134,18 +137,18 @@ class EventController extends Controller
   }
 
   public function receiveEventsRaspberry(Request $request){
-      $test = response()->json([$request->json('data'), 200]);
-      $event = new Event;
-      $event->idApp = 123123;
-      $event->idUser = "TEST";
-      $event->name = "TEST";
-      $event->lon = 0;
-      $event->lat = 0;
-      $event->dateGps = "2016-12-12 16:03:06";
-      $event->isInside = 0;
-      $event->idParcelle = 0;
-      $event->altitude = 0;
-      $event->isSync = 0;
-      $event->save();
+    $test = response()->json([$request->json('data'), 200]);
+    $event = new Event;
+    $event->idApp = 123123;
+    $event->idUser = "TEST";
+    $event->name = "TEST";
+    $event->lon = 0;
+    $event->lat = 0;
+    $event->dateGps = "2016-12-12 16:03:06";
+    $event->isInside = 0;
+    $event->idParcelle = 0;
+    $event->altitude = 0;
+    $event->isSync = 0;
+    $event->save();
   }
 }
