@@ -51,6 +51,6 @@ Route::get('showParcelsEvents', 'ParcelController@showParcelsEvents');
 
 Route::post('showParcelsEventsForm', 'ParcelController@showParcelsEventsForm');
 
-Route::post('api/receiveEventsRaspberry', 'EventController@receiveEventsRaspberry');
+Route::post('webservices/receiveEventsRaspberry', 'EventController@receiveEventsRaspberry');
 
-Route::post('api/receiveBleRapsberry', 'FittingController@receiveFittingsRaspberry');
+Route::post('webservices/receiveBleRapsberry', 'FittingController@receiveFittingsRaspberry');
