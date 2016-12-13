@@ -1,21 +1,6 @@
 <?php
-
 use App\Event;
 
-
-$servername = "localhost";
-$dbname = "agreenweb";
-$username = "root";
-$password = "x76gft96";
-$port="3306";
-
-try{
-    $cnx = new PDO('mysql:host='.$servername.';port='.$port.';dbname='.$dbname, $username, $password);
-}
-catch(PDOException $e)
-{
-    echo $e->getMessage();
-}
 $data = json_decode(file_get_contents('php://input'), true);
 $fileName = "9999111";
 
