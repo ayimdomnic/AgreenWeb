@@ -136,6 +136,9 @@ class EventController extends Controller
   public function receiveEventsRaspberry(){
     try{
       $data = json_decode(file_get_contents('php://input'), true);
+    }catch(Exception $e)
+    {
+      echo $e->getMessage();
     }
     try{
       foreach ($data as $key => $value) {
