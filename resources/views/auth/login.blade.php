@@ -4,8 +4,8 @@
 <div class="demo-container mdl-grid">
     <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
     <div class="demo-content content mdl-color-text--grey-800 mdl-cell mdl-cell--4-col content">
-        <h1 class="title">Découvrez Agreen,</h1>
-        <h2 class="subtitle">La plateforme de gestion agricole nouvelle génération</h1>
+        <h1 class="title">Discover transit</h1>
+        <h2 class="subtitle">the greatest parcel platform</h1>
         </div>
         <div class="demo-content content mdl-color-text--grey-800 mdl-cell mdl-cell--4-col login">
             <form class="form-horizontal" role="form" method="POST" action="{{ url('/login') }}">
@@ -18,14 +18,14 @@
                 </div>
                 <div>
                     <button  type="submit" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
-                        Se connecter
+                        Log In
                     </button>
                 </div>
                 <div>
                     <input type="hidden" id="checkbox-1" name="remember" class="mdl-checkbox__input" checked>
                     <a href="{{ url('/password/reset') }}">
                         <button class="mdl-button mdl-js-button mdl-js-ripple-effect">
-                            Mot de passe oublié?
+                            forgot your password?
                         </button>
                     </a>
                 </div>
